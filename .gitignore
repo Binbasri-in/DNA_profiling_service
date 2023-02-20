@@ -1,6 +1,3 @@
+# some folders
+/databases/
 
-__pycache__/
-.vscode/
-databases/
-sequences/
-```
