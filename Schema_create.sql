@@ -1,4 +1,8 @@
--- Database: dna_str_db
+-- create Database: dna_str_db
+-- create tables: users, dna_str, dna_str_users
+
+-- create database
+
 
 
 -- users table for login
@@ -35,3 +39,12 @@ CREATE TABLE IF NOT EXISTS dna_str (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS hashed ON dna_str (hashed);
 
+-- many to many relationship table
+CREATE TABLE IF NOT EXISTS dna_str_users (
+    dna_str_id INTEGER,
+    user_id INTEGER,
+    FOREIGN KEY(dna_str_id) REFERENCES dna_str(id),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+INSERT INTO dna_str_users (dna_str_id, user_id) VALUES (2, 2), (3, 2), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (14, 2), (15, 2), (16, 2), (17, 2), (18, 2), (19, 2), (20, 2), (21, 2);
