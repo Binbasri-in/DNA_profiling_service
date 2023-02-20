@@ -1,6 +1,6 @@
 
-__pycache__/
-.vscode/
-databases/
-sequences/
+/__pycache__/
+/.vscode/
+/databases/
+/sequences/
 ```
