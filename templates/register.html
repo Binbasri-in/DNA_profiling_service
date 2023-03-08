@@ -36,6 +36,48 @@
         <div class="form-group">
             <input autocomplete="off" class="form-control" name="lab_email" placeholder="Lab contact Email" type="text">
         </div>
-        <button class="btn btn-primary" type="submit">Register</button>
+        <button class="btn btn-primary" type="submit" disabled>Register</button>
     </form>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        // check if password and confirmation match on keyup
+        const password = document.querySelector('input[name="password"]');
+        const confirmation = document.querySelector('input[name="confirmation"]');
+        console.log(password)
+
+        // when start typing in confirmation check if it matches password and mark both as red if not
+        confirmation.addEventListener('keyup', () => {
+            if (password.value !== confirmation.value) {
+                password.classList.add('is-invalid');
+                confirmation.classList.add('is-invalid');
+            } else {
+                password.classList.remove('is-invalid');
+                confirmation.classList.remove('is-invalid');
+            }
+        });
+
+        // check if all fields are filled and enable submit button
+        const form = document.querySelector('form');
+        const submit = document.querySelector('button[type="submit"]');
+        const inputs = document.querySelectorAll('input');
+
+        form.addEventListener('keyup', () => {
+            let filled = true;
+            inputs.forEach(input => {
+                if (input.value === '') {
+                    filled = false;
+                }
+            });
+            if (filled) {
+                submit.disabled = false;
+            } else {
+                submit.disabled = true;
+            }
+        });
+        
+
+
+    </script>
 {% endblock %}
