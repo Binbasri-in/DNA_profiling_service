@@ -8,7 +8,7 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup
+from helpers import apology, login_required, hash_str
 
 # Configure application
 app = Flask(__name__)
@@ -158,7 +158,7 @@ def new():
         # Add the new DNA STR to the database
         try:
             dna_id = db.execute("INSERT INTO dna_str (owner_name, hashed, AGATC, TTTTTTCT, AATG, TCTAG, GATA, TATC, GAAA, TCTG) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-                    name, sum(count), count[0], count[1], count[2], count[3], count[4], count[5], count[6], count[7])
+                    name, hash_str(count), count[0], count[1], count[2], count[3], count[4], count[5], count[6], count[7])
 
         except:
             return apology("The name already exists. Please choose another name.")
@@ -185,7 +185,7 @@ def find():
         for STR in STRs:
             count.append(int(request.form.get(STR)))
         # find the DNA STR in the database
-        rows = db.execute("SELECT * FROM dna_str WHERE hashed = ?;",sum(count))
+        rows = db.execute("SELECT * FROM dna_str WHERE hashed = ?;",hash_str(count))
         if len(rows) == 0:
             return apology("The DNA STR not found.")
         else:

@@ -2,6 +2,7 @@
 
 import csv
 from cs50 import SQL
+from helpers import hash_str
 
 
 # open the database
@@ -27,7 +28,7 @@ with open("large.csv", "r") as file:
         # add the new DNA STR to the database
         try:
             db.execute("INSERT INTO dna_str (owner_name, hashed, AGATC, TTTTTTCT, AATG, TCTAG, GATA, TATC, GAAA, TCTG) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-                       row["name"], sum(count), count[0], count[1], count[2], count[3], count[4], count[5], count[6], count[7])
+                       row["name"], hash_str(count), count[0], count[1], count[2], count[3], count[4], count[5], count[6], count[7])
         except:
             print("Error")
 

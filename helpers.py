@@ -61,3 +61,17 @@ def lookup(symbol):
 def usd(value):
     """Format value as USD."""
     return f"${value:,.2f}"
+
+
+def hash_str(count):
+    """Hash the STRs"""
+    # hash the STRs by taking 8 integer numbers in order and produce unique number
+    # for example: 1, 2, 3, 4, 5, 6, 7, 8 will be 12345678
+    # for example: 1, 2, 3, 4, 5, 6, 7, 8, 9 will be 12345678
+
+    # convert the list to string
+    count_str = ''.join(str(e) for e in count)
+    # convert the string to integer
+    count_int = int(count_str)
+    # return the integer
+    return count_int

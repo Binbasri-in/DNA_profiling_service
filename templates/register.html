@@ -77,6 +77,15 @@
             }
         });
         
+        // password must be at least 8 characters
+        password.addEventListener('keyup', () => {
+            if (password.value.length < 8) {
+                password.classList.add('is-invalid');
+            } else {
+                password.classList.remove('is-invalid');
+            }
+        });
+        
 
 
     </script>
