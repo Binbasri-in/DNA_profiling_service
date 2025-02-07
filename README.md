@@ -1,6 +1,6 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H5VAL6E)
 
-# DNA Profiling Service
+# DNA Profiling Service (For Resume)
 
 The DNA Profiling Service is a web application designed to streamline the process of storing and accessing DNA data for laboratories. Utilizing Short Tandem Repeats (STRs) for DNA profiling, this service optimizes data search and matching operations, significantly improving efficiency over traditional methods.
 
