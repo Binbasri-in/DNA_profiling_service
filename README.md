@@ -50,6 +50,10 @@ After starting the application, navigate to `http://localhost:5000` in your web 
 - Search for existing profiles using STR data
 - Compare profiles for matches
 
+## CLI Version
+
+The CLI version of the DNA Profiling with STRs is a command-line interface that allows users to perform simple demonstration of DNA profiling using STRs. It provides a straightforward way to input DNA sequences, search for matches, and display results without the need for a web interface. the CLI version is located in the `DNA_STR` directory.
+
 ## Contributing
 Contributions to the DNA Profiling Service are welcome. If you would like to contribute, please fork the repository and submit a pull request with your proposed changes.
 
